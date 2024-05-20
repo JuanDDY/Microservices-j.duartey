@@ -132,5 +132,3 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-
-PATH_MEA = "http://" + os.environ.get("MEASUREMENTS_HOST", "10.128.0.85") + ":" + os.environ.get("MEASUREMENTS_PORT", "8080") + "/measurements"
