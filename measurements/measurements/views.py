@@ -21,7 +21,7 @@ def check_place(data):
     r = requests.get(settings.PATH_PLACE, headers={"Accept":"application/json"})
     places = r.json()
     for place in places:
-        if data["place"] == place["id"]:
+        if data["place"] == place["name"]:
             return True
     return False
 
@@ -53,7 +53,7 @@ def MeasurementsCreate(request):
         data_json = json.loads(data)
         measurement_list = []
         for measurement in data_json:
-                    if check_variable(measurement) == True and check_place(data_json)==True:      #Se checkea si el lugar existe
+                    if check_variable(measurement) == True and check_place(measurement)==True:      #Se checkea si el lugar existe
                         db_measurement = Measurement()
                         db_measurement.variable = measurement['variable']
                         db_measurement.value = measurement['value']
